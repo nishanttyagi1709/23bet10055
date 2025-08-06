@@ -1,0 +1,89 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.bank-container {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.bank-container h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Balance section */
+.balance-box {
+  margin-bottom: 20px;
+}
+
+.balance-box p {
+  font-size: 16px;
+  color: #777;
+}
+
+.balance-box h2 {
+  font-size: 28px;
+  color: #2e7d32;
+  margin-top: 8px;
+}
+
+/* Input */
+.amount-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.deposit {
+  background-color: #4caf50;
+  color: white;
+}
+
+.withdraw {
+  background-color: #f44336;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
