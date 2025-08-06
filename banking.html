@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Responsive Banking Interface</title>
+ <style>
+ :root {
+ --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+ }
+ body {
+ margin: 0;
+ font-family: Arial, sans-serif;
+ background: #ecf0f1;
+ }
+ .bank-interface {
+ display: grid;
+ gap: 1rem;
+ max-width: 500px;
+ margin: 2rem auto;
+ padding: 2rem;
+ background: #fff;
+ border-radius: 8px;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+ .bank-interface h2 {
+ color: var(--primary-color);
+ text-align: center;
+ }
+ input[type="number"] {
+ padding: 0.5rem;
+ font-size: 1rem;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ width: 100%;
+ }
+ .btn-group {
+    display: flex;
+ gap: 1rem;
+ justify-content: center;
+ }
+ button {
+ padding: 0.5rem 1rem;
+ background: var(--secondary-color);
+ color: white;
+ border: none;
+ border-radius: 4px;
+ font-size: 1rem;
+ cursor: pointer;
+ }
+ button:hover {
+ background: #2980b9;
+ }
+ #message {
+ color: red;
+ text-align: center;
+ font-weight: bold;
+ }
+ @media (max-width: 600px) {
+ .bank-interface {
+ padding: 1rem;
+ margin: 1rem;
+ }
+ .btn-group {
+ flex-direction: column;
+ }
+ button {
+ width: 100%;
+ }
+ }
+ </style>
+</head>
+<body>
+     <div class="bank-interface">
+ <h2>Account Balance: <span id="balance">$1000</span></h2>
+ <input type="number" id="amount" placeholder="Enter amount" min="0">
+ <div class="btn-group">
+ <button onclick="deposit()">Deposit</button>
+ <button onclick="withdraw()">Withdraw</button>
+ </div>
+ <p id="message"></p>
+ </div>
+ <script>
+ let balance = 1000;
+ function updateUI() {
+ document.getElementById('balance').textContent = `$${balance}`;
+ document.getElementById('amount').value = '';
+ document.getElementById('message').textContent = '';
+ }
+ function deposit() {
+ const amount = Number(document.getElementById('amount').value);
+ if (amount > 0) {
+ balance += amount;
+ updateUI();
+ } else {
+ document.getElementById('message').textContent = 'Enter a valid deposit amount!';
+ }
+ }
+ function withdraw() {
+ const amount = Number(document.getElementById('amount').value);
+ if (amount > 0 && amount <= balance) {
+ balance -= amount;
+ updateUI();
+ } else {
+ document.getElementById('message').textContent = 'Invalid withdrawal amount!';
+ }
+  }
+ </script>
+</body>
+</html>
